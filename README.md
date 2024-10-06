@@ -36,4 +36,10 @@ Or, use the web interface by running the Flask app:
 `python app.py`
 
 Enter a user ID and select 'client' or 'care-provider'. Optionally, provide a path in de Minddistrict platform to open once the user is logged in. Click submit to generate the DLO URL.
-![alt text](image.png)
+![DLO screenshot](dlo_screenshot.png)
+
+### Tests:
+
+To run a few unit tests for this project, run:
+
+`pytest -v`
