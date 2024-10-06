@@ -8,9 +8,14 @@ import hashlib
 import hmac
 
 load_dotenv()
+secret = os.getenv("DLO_SECRET")
+baseUrl = os.getenv("BASE_URL")
 
 
 def generateToken(message, secret):
+    if not message or not secret:
+        raise ValueError("'message' or 'secret' cannot be empty")
+
     token = hmac.new(
         secret.encode("utf-8"), message.encode("utf-8"), hashlib.sha512
     ).hexdigest()
@@ -18,8 +23,10 @@ def generateToken(message, secret):
     return token
 
 
-def generateDloUrl(userid, usertype, pathToOpen):
-    baseUrl = os.getenv("BASE_URL")
+def generateDloUrl(userid, usertype, baseUrl, pathToOpen):
+    if not userid or not usertype or not baseUrl:
+        raise ValueError("'Userid' or 'usertype' cannot be empty")
+
     formattedTimestamp = datetime.datetime.now().isoformat() + "+02:00"
     nonce = str(uuid.uuid4())
 
@@ -34,7 +41,6 @@ def generateDloUrl(userid, usertype, pathToOpen):
         + usertype
     )
 
-    secret = os.getenv("DLO_SECRET")
     token = generateToken(message, secret)
 
     params = {
@@ -46,7 +52,6 @@ def generateDloUrl(userid, usertype, pathToOpen):
     }
 
     DloUrl = baseUrl + pathToOpen + "?" + urllib.parse.urlencode(params)
-
     return DloUrl
 
 
@@ -57,10 +62,7 @@ if __name__ == "__main__":
     usertype = input("\nPlease enter a usertype: ")
     pathToOpen = input("\nPlease enter a path to open (optional): ")
 
-    if not userid or not usertype:
-        raise ValueError("'Userid' or 'usertype' cannot be empty")
-
-    DloUrl = generateDloUrl(userid, usertype, pathToOpen)
+    DloUrl = generateDloUrl(userid, usertype, baseUrl, pathToOpen)
 
     print("\nDLO URL is:")
     pprint(DloUrl)

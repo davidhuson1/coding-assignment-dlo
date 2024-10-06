@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get DLO URL</title>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <img
+      class="logo"
+      src="/static/images/md_logo.png"
+      alt="minddistrict logo"
+    />
+    <h1>An error has occurred: No user ID was provided</h1>
+    <p>Go back an try again!</p>
+    <p><a href="{{ url_for('index') }}">Back</a></p>
+  </body>
+</html>
