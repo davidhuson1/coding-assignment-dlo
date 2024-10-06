@@ -14,7 +14,7 @@ For more information, see the [Minddistrict documentation.](https://docs.minddis
     
       `python -m venv .venv `
 
-      `.\venv\Scripts\activate`
+      `.\.venv\Scripts\activate`
 
  2. Install dependencies:
    
