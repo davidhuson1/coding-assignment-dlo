@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minddistrict Get DLO URL</title>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <img
+      class="logo"
+      src="/static/images/md_logo.png"
+      alt="minddistrict logo"
+    />
+    <h1>Get DLO URL:</h1>
+    <form action="/getDLO">
+      <input
+        type="text"
+        name="userid"
+        id="userid"
+        placeholder="Enter a user ID"
+      />
+      <select name="usertype" id="usertype">
+        <option class="careprovider-option" value="client">Client</option>
+        <option class="client-option" value="careprovider">
+          Care provider
+        </option>
+      </select>
+      <label for="pathToOpen">Path to open:</label>
+      <select name="pathToOpen" id="pathToOpen">
+        <option value="">Home (default)</option>
+        <option class="careprovider-option" value="tasks">
+          Tasks (careprovider)
+        </option>
+        <option class="careprovider-option" value="c">
+          My client (careprovider)
+        </option>
+        <option class="careprovider-option" value="p">
+          List of professionals (careprovider)
+        </option>
+        <option class="careprovider-option" value="configuration">
+          Application config (careprovider)
+        </option>
+        <option class="client-option" value="conversations">
+          Conversations (client)
+        </option>
+      </select>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

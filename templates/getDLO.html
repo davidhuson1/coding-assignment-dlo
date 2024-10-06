@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>get DLO URL</title>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <img
+      class="logo"
+      src="/static/images/md_logo.png"
+      alt="minddistrict logo"
+    />
+    <h1>DLO URL for {{ usertype }}: {{ userid }}</h1>
+    <div id="url">
+      <a href="{{ url }}" target="_blank">{{url}}</a>
+    </div>
+    <div>
+      <a href="/"><button>New DLO URL</button></a>
+    </div>
+  </body>
+</html>
