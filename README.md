@@ -10,7 +10,7 @@ For more information, see the [Minddistrict documentation.](https://docs.minddis
 
 ### Installation:
 
- 1. Setup and activate a virtual environment:
+ 1. Make sure Python (3.12) and Flask (3.0.3) are installed. Next, setup and activate a virtual environment:
     
       `python -m venv .venv `
 
@@ -20,7 +20,8 @@ For more information, see the [Minddistrict documentation.](https://docs.minddis
    
     `pip install -r requirements.txt`
  1. Create a *.env* file and add a secret key and a base URL:
- ` BASE_URL="https://example.minddistrict.dev/"   `  
+   
+    ` BASE_URL="https://example.minddistrict.dev/"   `  
 
     `DLO_SECRET=<YOUR SECRET KEY>`
 
@@ -29,7 +30,7 @@ For more information, see the [Minddistrict documentation.](https://docs.minddis
 
 Use the CLI by running:
 
-`python DLO.py`
+`python dlo.py`
 
 Or, use the web interface by running the Flask app:
 
